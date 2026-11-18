@@ -1,0 +1,489 @@
+
+/* DESIGN VARIABLES */
+
+:root {
+  /* Colours */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+
+  --text: #1e293b;
+  --text-muted: #64748b;
+
+  --border: #e2e8f0;
+
+  /* Status colours */
+  --read: #008a59;
+  --read-bg: #ddf5ea;
+
+  --currently: #1763d5;
+  --currently-bg: #e3eeff;
+
+  --want: #e85d16;
+  --want-bg: #fff0e6;
+
+  /* Typography */
+  --font-main: "Inter", Arial, sans-serif;
+
+  /* Spacing */
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+
+  /* Others */
+  --radius: 12px;
+  --container-width: 1150px;
+
+  --shadow: 0 2px 8px rgba(30, 41, 59, 0.04);
+}
+
+
+/* RESET & GENERAL*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+button {
+  cursor: pointer;
+}
+
+.main-content {
+  width: calc(100% - 48px);
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-block: var(--space-xl);
+}
+
+
+/* HEADER*/
+
+header {
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+  width: calc(100% - 48px);
+  max-width: var(--container-width);
+  min-height: 72px;
+  margin-inline: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-container p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* ADD BOOK BUTTON*/
+
+.add-book-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 22px;
+
+  background-color: var(--primary);
+  color: #ffffff;
+
+  border: none;
+  border-radius: var(--radius);
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: background-color 150ms ease;
+}
+
+.add-book-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.add-book-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.add-book-btn:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 3px;
+}
+
+
+/* MAIN HEADING */
+
+.main-content h1 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: var(--space-lg);
+}
+
+
+/* SEARCH & FILTERS*/
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  position: relative;
+  margin-bottom: var(--space-xl);
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+
+  padding: 0 20px 0 48px;
+
+  background-color: #eef2f8;
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  color: var(--text);
+  font-size: 14px;
+
+  transition: border-color 150ms ease,
+              background-color 150ms ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: var(--surface);
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+
+  position: absolute;
+  left: 16px;
+  top: 24px;
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-group button {
+  padding: 11px 18px;
+
+  background-color: var(--surface);
+  color: var(--text-muted);
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition: background-color 150ms ease,
+              color 150ms ease,
+              border-color 150ms ease;
+}
+
+.btn-group button:hover {
+  background-color: var(--surface-hover);
+  color: var(--text);
+}
+
+.btn-group button.active {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+
+/* BOOK GRID*/
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+/* BOOK CARDS */
+
+.book {
+  min-height: 190px;
+  padding: 20px 22px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  box-shadow: var(--shadow);
+
+  transition: border-color 150ms ease,
+              transform 150ms ease;
+}
+
+.book:hover {
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.book-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+
+/* Status badges */
+
+.read-state {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 5px 12px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.read-state.read {
+  color: var(--read);
+  background-color: var(--read-bg);
+}
+
+.read-state.currently {
+  color: var(--currently);
+  background-color: var(--currently-bg);
+}
+
+.read-state.want-to {
+  color: var(--want);
+  background-color: var(--want-bg);
+}
+
+
+/* Book title */
+
+.book .title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+
+/* Author */
+
+.book .author {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+
+/* Page information */
+
+.pages-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pages-info p {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+
+/* Delete button */
+
+.delete-book-btn {
+  padding: 5px 8px;
+
+  background-color: transparent;
+  color: var(--text-muted);
+
+  border: none;
+  border-radius: 6px;
+
+  font-size: 12px;
+
+  transition: background-color 150ms ease,
+              color 150ms ease;
+}
+
+.delete-book-btn:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+
+/* EMPTY STATE*/
+
+.no-books-screen {
+  display: none;
+
+  min-height: 170px;
+  padding: 32px 20px;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  background-color: #f1f5f9;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+.no-books-screen h2 {
+  font-size: 20px;
+}
+
+.no-books-screen p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Show empty state when the library has no books */
+
+/* "is-empty" class to be introduced by javascript */
+.main-content.is-empty .book-grid {
+  display: none;
+}
+
+.main-content.is-empty .no-books-screen {
+  display: flex;
+}
+
+
+/* RESPONSIVE DESIGN*/
+
+@media (max-width: 900px) {
+  .search {
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    flex-basis: 100%;
+  }
+
+  .btn-group {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    width: calc(100% - 32px);
+    padding-block: 28px;
+  }
+
+  .header-container {
+    width: calc(100% - 32px);
+    min-height: 64px;
+  }
+
+  .header-container p {
+    font-size: 18px;
+  }
+
+  .add-book-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .main-content h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .search {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .btn-group {
+    gap: 8px;
+  }
+
+  .btn-group button {
+    padding: 9px 14px;
+    font-size: 12px;
+  }
+
+  .book-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .book {
+    min-height: 165px;
+    padding: 18px;
+  }
+}
