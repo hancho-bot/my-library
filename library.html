@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <script src="script.js" ></script>
   </head>
 
   <body>
@@ -13,17 +13,17 @@
       <div class="header-container">
         <p>My Library</p>
 
-        <button class="add-book-btn"><img src="icons/plus.svg" alt="plus-icon"> <span>Add Book</span></button>
+        <button class="add-book-btn">
+          <img src="icons/plus.svg" alt="plus-icon" /> <span>Add Book</span>
+        </button>
       </div>
     </header>
 
     <main class="main-content">
-
       <h1>My Library</h1>
 
       <section class="search">
-
-        <img class="search-icon" src="icons/search.svg" alt="search-icon">
+        <img class="search-icon" src="icons/search.svg" alt="search-icon" />
         <input
           type="search"
           class="search-input"
@@ -141,6 +141,63 @@
 
         <p>Click the "Add Book" button to get started.</p>
       </section>
+
+      <dialog class="book-dialog" open>
+        <form class="book-form">
+          <div class="form-header">
+            <div>
+              <h2>Add a book</h2>
+              <p>Add a new title to your library.</p>
+            </div>
+
+            <button type="button" class="close-dialog" aria-label="Close">
+              &times;
+            </button>
+          </div>
+
+          <div class="form-fields">
+            <div class="form-field">
+              <label for="book-title">Book title</label>
+              <input
+                type="text"
+                id="book-title"
+                name="title"
+                placeholder="Enter book title..."
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="book-author">Author</label>
+              <input
+                type="text"
+                id="book-author"
+                name="author"
+                placeholder="Enter author's name..."
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="book-pages">Number of pages</label>
+              <input
+                type="number"
+                id="book-pages"
+                name="pages"
+                placeholder="e.g. 320"
+                required
+              />
+            </div>
+          </div>
+
+          <label class="read-checkbox">
+            <input type="checkbox" name="read" />
+            <span>Have you read this book?</span>
+          </label>
+
+          <button type="submit" class="submit-book-btn">Add Book</button>
+        </form>
+      </dialog>
     </main>
   </body>
 </html>

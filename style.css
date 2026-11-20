@@ -189,18 +189,6 @@ input:focus-visible {
 .search-icon {
   width: 20px;
   height: 20px;
-
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-
-  pointer-events: none;
-}
-
-.search-icon {
-  width: 20px;
-  height: 20px;
   display: block;
 
   position: absolute;
@@ -414,6 +402,189 @@ input:focus-visible {
 .main-content.is-empty .no-books-screen {
   display: flex;
 }
+
+/* Dialog Styles */
+
+
+/* ADD BOOK DIALOG */
+
+.book-dialog {
+  display: none;
+  width: min(92%, 460px);
+  max-height: 90vh;
+  overflow-y: auto;
+
+  margin: auto;
+  padding: 28px;
+
+  background-color: var(--surface);
+  color: var(--text);
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow: 0 16px 50px rgba(30, 41, 59, 0.16);
+}
+
+.book-dialog::backdrop {
+  background-color: rgba(30, 41, 59, 0.45);
+  backdrop-filter: blur(3px);
+}
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+
+/* HEADER */
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.form-header p {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.close-dialog {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  background-color: var(--background);
+  color: var(--text-muted);
+
+  border: none;
+  border-radius: 8px;
+
+  font-size: 22px;
+}
+
+
+/* INPUT FIELDS */
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 13px 14px;
+
+  background-color: #ffffff;
+  color: var(--text);
+
+  border: 1px solid #dbe4ef;
+  border-radius: 10px;
+
+  font-size: 14px;
+  outline: none;
+
+  transition: border-color 150ms ease,
+              box-shadow 150ms ease;
+}
+
+.form-field input::placeholder {
+  color: #94a3b8;
+}
+
+.form-field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* READ STATUS */
+
+.read-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.read-checkbox input {
+  width: 17px;
+  height: 17px;
+
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+
+/* SUBMIT BUTTON */
+
+.submit-book-btn {
+  width: 100%;
+  padding: 13px;
+
+  background-color: var(--primary);
+  color: #ffffff;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: background-color 150ms ease;
+}
+
+.submit-book-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+
+/* SMALL SCREENS */
+
+@media (max-width: 480px) {
+  .book-dialog {
+    padding: 22px;
+  }
+
+  .form-header h2 {
+    font-size: 21px;
+  }
+
+  .book-form {
+    gap: 18px;
+  }
+}
+
 
 
 /* RESPONSIVE DESIGN*/
