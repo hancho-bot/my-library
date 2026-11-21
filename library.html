@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" ></script>
   </head>
 
   <body>
@@ -33,107 +32,12 @@
         <div class="btn-group">
           <button type="button" class="active">All</button>
           <button type="button">Read</button>
-          <button type="button">Currently Reading</button>
           <button type="button">Want to read</button>
         </div>
       </section>
 
       <section class="book-grid">
-        <article class="book">
-          <div class="book-description">
-            <p class="read-state read">Read</p>
-
-            <h3 class="title">Atomic Habits</h3>
-
-            <p class="author">James Clear</p>
-          </div>
-
-          <div class="pages-info">
-            <p>320 pages</p>
-
-            <button class="delete-book-btn">Delete</button>
-          </div>
-        </article>
-
-        <article class="book">
-          <div class="book-description">
-            <p class="read-state currently">Currently Reading</p>
-
-            <h3 class="title">The 5 AM Club</h3>
-
-            <p class="author">Robin Sharma</p>
-          </div>
-
-          <div class="pages-info">
-            <p>256 pages</p>
-
-            <button class="delete-book-btn">Delete</button>
-          </div>
-        </article>
-
-        <article class="book">
-          <div class="book-description">
-            <p class="read-state want-to">Want to Read</p>
-
-            <h3 class="title">Dune</h3>
-
-            <p class="author">Frank Herbert</p>
-          </div>
-
-          <div class="pages-info">
-            <p>320 pages</p>
-
-            <button class="delete-book-btn" type="button">Delete</button>
-          </div>
-        </article>
-
-        <article class="book">
-          <div class="book-description">
-            <p class="read-state read">Read</p>
-
-            <h3 class="title">Clean Code</h3>
-
-            <p class="author">Robert C. Martin</p>
-          </div>
-
-          <div class="pages-info">
-            <p>464 pages</p>
-
-            <button class="delete-book-btn" type="button">Delete</button>
-          </div>
-        </article>
-
-        <article class="book">
-          <div class="book-description">
-            <p class="read-state want-to">Want to Read</p>
-
-            <h3 class="title">Sapiens</h3>
-
-            <p class="author">Yuvani Noah Harari</p>
-          </div>
-
-          <div class="pages-info">
-            <p>443 pages</p>
-
-            <button class="delete-book-btn" type="button">Delete</button>
-          </div>
-        </article>
-
-        <article class="book">
-          <div class="book-description">
-            <p class="read-state currently">Currently Reading</p>
-
-            <h3 class="title">Deep Work</h3>
-
-            <p class="author">Cal Newport</p>
-          </div>
-
-          <div class="pages-info">
-            <p>304 pages</p>
-
-            <button class="delete-book-btn" type="button">Delete</button>
-          </div>
-        </article>
+        <!-- Book cards to be dynamically generated -->
       </section>
 
       <section class="no-books-screen">
@@ -142,12 +46,12 @@
         <p>Click the "Add Book" button to get started.</p>
       </section>
 
-      <dialog class="book-dialog" open>
+      <dialog class="book-dialog">
         <form class="book-form">
           <div class="form-header">
             <div>
               <h2>Add a book</h2>
-              <p>Add a new title to your library.</p>
+              <p>Add a new book to your library.</p>
             </div>
 
             <button type="button" class="close-dialog" aria-label="Close">
@@ -191,7 +95,7 @@
           </div>
 
           <label class="read-checkbox">
-            <input type="checkbox" name="read" />
+            <input type="checkbox" id="book-status" name="read" />
             <span>Have you read this book?</span>
           </label>
 
@@ -199,5 +103,7 @@
         </form>
       </dialog>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
