@@ -387,11 +387,8 @@ input:focus-visible {
 /* Show empty state when the library has no books */
 
 /* "is-empty" class to be introduced by javascript */
-.main-content.is-empty .book-grid {
-  display: none;
-}
 
-.main-content.is-empty .no-books-screen {
+.main-content .no-books-screen.is-empty {
   display: flex;
 }
 

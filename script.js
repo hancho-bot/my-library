@@ -89,6 +89,7 @@ const bookTitle = document.querySelector("#book-title");
 const bookPages = document.querySelector("#book-pages");
 const bookStatus = document.querySelector("#book-status");
 
+const noBookScreen = document.querySelector('.no-books-screen');
 
 // 5. DIALOG EVENT LISTENERS
 
@@ -119,8 +120,9 @@ formField.addEventListener("submit", (event) => {
   // Adds the new book to the library
   addBookToLibrary(titleText, authorText, pagesText, readStatusText);
 
-  // Updates the displayed books
-  renderBookHTML();
+  // Updates the displayed books and removes the no-book screen
+    noBookScreen.classList.remove('is-empty')
+    renderBookHTML();
 
   // Clears the form and closes the dialog
   formField.reset();
@@ -146,4 +148,11 @@ bookGridElement.addEventListener("click", (event) => {
 
   // Updates the displayed books
   renderBookHTML();
+
+  if (library.length === 0) {
+    noBookScreen.classList.add('is-empty');
+  }
 });
+
+// Adds no-book screen initially when the library is empty
+noBookScreen.classList.add('is-empty');
